@@ -1,46 +1,36 @@
 # eslint-plugin-no-unsupported
 
-No unsupported features.
+Do not use unsupported features.
 
 ## Installation
 
-You'll first need to install [ESLint](https://eslint.org/):
-
 ```sh
-yarn i eslint --save-dev
-```
-
-Next, install `eslint-plugin-no-unsupported`:
-
-```sh
-yarn add eslint-plugin-no-unsupported --save-dev
+yarn i eslint eslint-plugin-no-unsupported --save-dev
 ```
 
 ## Usage
 
-Add `no-unsupported` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Configure it in `.eslintrc.js` or `.eslintrc.json`:
 
 ```json
 {
     "plugins": [
-        "no-unsupported"
-    ]
-}
-```
-
-
-Then configure the rules you want to use under the rules section.
-
-```json
-{
+        "plugin:no-unsupported/all"
+    ],
     "rules": {
-        "no-unsupported/react-native/style-position": 2
+        "no-unsupported/react-native/style-position": "error",
+        "no-unsupported/react-native/style-calc": "error",
+        "no-unsupported/react-native/style-vm-vh": "error"
     }
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
+table
 
-
+| Rule | Description |
+| --- | --- |
+| `no-unsupported/react-native/style-position` | react native only supports `position: absolute\|relative` |
+| `no-unsupported/react-native/style-calc` | react native does not support `calc` |
+| `no-unsupported/react-native/style-vm-vh` | react native does not support `vw` and `vh` |
