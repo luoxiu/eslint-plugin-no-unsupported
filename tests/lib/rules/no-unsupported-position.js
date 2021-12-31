@@ -27,21 +27,27 @@ const parserOptions = {
 const ruleTester = new RuleTester({ parserOptions });
 ruleTester.run("no-unsupported-position", rule, {
   valid: [
-    `const a = { position: "absolute" }`,
-    `const a = { "position": "relative" }`,
+    "const a = { position: 'absolute' }",
+    "const a = { 'position': 'absolute' }",
+    "const a = { position: `absolute` }",
+    "const a = { position: 'xq.jin' }",
   ],
 
   invalid: [
     {
-      code: `const a = { "position": "fixed" }`,
+      code: "const a = { position: 'fixed' }",
       errors: [{ messageId: "onlySupports" }],
     },
     {
-      code: `const a = { position: "xq.jin" }`,
+      code: "const a = { 'position': 'fixed' }",
       errors: [{ messageId: "onlySupports" }],
     },
     {
-      code: `const v = <button style={{position: 'fixed'}} />`,
+      code: "const a = { position: `sticky` }",
+      errors: [{ messageId: "onlySupports" }],
+    },
+    {
+      code: "const v = <button style={{ position: 'fixed' }} />",
       errors: [{ messageId: "onlySupports" }],
     },
   ],
