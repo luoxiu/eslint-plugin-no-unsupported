@@ -1,4 +1,4 @@
-# no unsupported position (no-unsupported-position)
+# style-position (style-position)
 
 Please describe the origin of the rule here.
 

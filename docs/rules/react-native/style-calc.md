@@ -1,4 +1,4 @@
-# no unsupported vw vh (no-unsupported-vw-vh)
+# style-calc (style-calc)
 
 Please describe the origin of the rule here.
 

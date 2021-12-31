@@ -1,4 +1,4 @@
-# no unsupported calc (no-unsupported-calc)
+# style-vw-vh (style-vw-vh)
 
 Please describe the origin of the rule here.
 

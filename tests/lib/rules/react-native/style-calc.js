@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-unsupported-calc"),
+const rule = require("../../../../lib/rules/react-native/style-calc"),
   RuleTester = require("eslint").RuleTester;
 
 
@@ -25,7 +25,7 @@ const parserOptions = {
 };
 
 const ruleTester = new RuleTester({ parserOptions });
-ruleTester.run("no-unsupported-calc", rule, {
+ruleTester.run("react-native/style-calc", rule, {
   valid: [
     "const style = { width: '100%' }",
     "style.width = `100%`",

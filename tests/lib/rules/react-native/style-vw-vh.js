@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-unsupported-vw-vh"),
+const rule = require("../../../../lib/rules/react-native/style-vw-vh"),
   RuleTester = require("eslint").RuleTester;
 
 
@@ -26,7 +26,7 @@ const parserOptions = {
 };
 
 const ruleTester = new RuleTester({ parserOptions });
-ruleTester.run("no-unsupported-vw-vh", rule, {
+ruleTester.run("react-native/style-vw-vh", rule, {
   valid: [
     // give me some code that won't trigger a warning
   ],

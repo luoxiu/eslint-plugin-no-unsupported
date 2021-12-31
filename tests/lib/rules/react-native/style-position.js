@@ -1,5 +1,5 @@
 /**
- * @fileoverview no unsupported position
+ * @fileoverview style-position
  * @author luoxiu
  */
 "use strict";
@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../lib/rules/no-unsupported-position"),
+const rule = require("../../../../lib/rules/react-native/style-position"),
   RuleTester = require("eslint").RuleTester;
 
 
@@ -25,7 +25,7 @@ const parserOptions = {
 };
 
 const ruleTester = new RuleTester({ parserOptions });
-ruleTester.run("no-unsupported-position", rule, {
+ruleTester.run("react-native/style-position", rule, {
   valid: [
     "const a = { position: 'absolute' }",
     "const a = { 'position': 'absolute' }",
@@ -36,19 +36,19 @@ ruleTester.run("no-unsupported-position", rule, {
   invalid: [
     {
       code: "const a = { position: 'fixed' }",
-      errors: [{ messageId: "onlySupports" }],
+      errors: [{ messageId: "doesNotSupport" }],
     },
     {
       code: "const a = { 'position': 'fixed' }",
-      errors: [{ messageId: "onlySupports" }],
+      errors: [{ messageId: "doesNotSupport" }],
     },
     {
       code: "const a = { position: `sticky` }",
-      errors: [{ messageId: "onlySupports" }],
+      errors: [{ messageId: "doesNotSupport" }],
     },
     {
       code: "const v = <button style={{ position: 'fixed' }} />",
-      errors: [{ messageId: "onlySupports" }],
+      errors: [{ messageId: "doesNotSupport" }],
     },
   ],
 });
