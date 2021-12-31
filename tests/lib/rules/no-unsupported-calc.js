@@ -27,25 +27,33 @@ const parserOptions = {
 const ruleTester = new RuleTester({ parserOptions });
 ruleTester.run("no-unsupported-calc", rule, {
   valid: [
-    `{ width: "100%" }`,
-    `{ width: "10px" }`,
+    "const style = { width: '100%' }",
+    "style.width = `100%`",
+    "const width = '${inset}px'",
+    "<Button style={{ width: '100%' }} />",
   ],
 
   invalid: [
     {
-      code: "{ width: 'calc(100% - 10px)' }",
+      code: "const style = { width: 'calc(100% - 10px)' }",
       errors: [{ 
         messageId: "doesNotSupport",
       }],
     },
     {
-      code: "const width = 'calc(100% - 10px)'",
+      code: "style.width = 'calc(100% - 10px)'",
       errors: [{ 
         messageId: "doesNotSupport",
       }],
     },
     {
       code: "const width = `calc(100% - ${inset}px)`",
+      errors: [{ 
+        messageId: "doesNotSupport",
+      }],
+    },
+    {
+      code: "<Button style={{ width: 'calc(100% - 10px)' }} />",
       errors: [{ 
         messageId: "doesNotSupport",
       }],
