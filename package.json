@@ -1,11 +1,13 @@
 {
   "name": "eslint-plugin-no-unsupported",
-  "version": "0.0.0",
-  "description": "react native",
+  "version": "0.0.1",
+  "description": "no unsupported features",
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "reactnative",
+    "react-native"
   ],
   "author": "luoxiu",
   "main": "lib/index.js",
