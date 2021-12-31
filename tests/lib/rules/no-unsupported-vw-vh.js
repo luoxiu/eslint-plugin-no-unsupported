@@ -33,19 +33,15 @@ ruleTester.run("no-unsupported-vw-vh", rule, {
 
   invalid: [
     {
+      code: "const style = { width: '100vw' }",
+      errors: [{ messageId: "doesNotSupportVW" }],
+    },
+    {
       code: "const width = '100vw'",
       errors: [{ messageId: "doesNotSupportVW" }],
     },
     {
-      code: "const width = `100vw`",
-      errors: [{ messageId: "doesNotSupportVW" }],
-    },
-    {
-      code: "const width = '100vh'",
-      errors: [{ messageId: "doesNotSupportVH" }],
-    },
-    {
-      code: "const width = `100vh`",
+      code: "style.width = `100vh`",
       errors: [{ messageId: "doesNotSupportVH" }],
     },
   ],
