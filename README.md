@@ -15,7 +15,7 @@ Configure it in `.eslintrc.js` or `.eslintrc.json`:
 ```json
 {
     "plugins": [
-        "plugin:no-unsupported/all"
+        "no-unsupported"
     ],
     "rules": {
         "no-unsupported/react-native/style-position": "error",
