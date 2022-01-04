@@ -32,3 +32,4 @@ Configure it in `.eslintrc.js` or `.eslintrc.json`:
 | `no-unsupported/react-native/style-position` | react native only supports `position: absolute\|relative` |
 | `no-unsupported/react-native/style-calc` | react native does not support `calc` |
 | `no-unsupported/react-native/style-vm-vh` | react native does not support `vw` and `vh` |
+| `no-unsupported/react-native/style-align-self` | react native only supports `align-self: auto\|flex-start\|flex-end\|center\|baseline\|stretch` |
