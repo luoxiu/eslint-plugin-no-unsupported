@@ -27,8 +27,6 @@ Configure it in `.eslintrc.js` or `.eslintrc.json`:
 
 ## Supported Rules
 
-table
-
 | Rule | Description |
 | --- | --- |
 | `no-unsupported/react-native/style-position` | react native only supports `position: absolute\|relative` |
