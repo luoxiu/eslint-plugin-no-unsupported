@@ -20,7 +20,11 @@ Configure it in `.eslintrc.js` or `.eslintrc.json`:
     "rules": {
         "no-unsupported/react-native/style-position": "error",
         "no-unsupported/react-native/style-calc": "error",
-        "no-unsupported/react-native/style-vm-vh": "error"
+        "no-unsupported/react-native/style-vw-vh": "error",
+        "no-unsupported/react-native/style-align-self": "error",
+        "no-unsupported/react-native/style-border-self": "error",
+        "no-unsupported/react-native/style-cursor": "error",
+        "no-unsupported/react-native/style-z-index": "error",
     }
 }
 ```
