@@ -22,7 +22,7 @@ Configure it in `.eslintrc.js` or `.eslintrc.json`:
         "no-unsupported/rn-style-calc": "error",
         "no-unsupported/rn-style-vw-vh": "error",
         "no-unsupported/rn-style-align-self": "error",
-        "no-unsupported/rn-style-border-self": "error",
+        "no-unsupported/rn-style-border-style": "error",
         "no-unsupported/rn-style-cursor": "error",
         "no-unsupported/rn-style-z-index": "error",
     }
