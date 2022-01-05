@@ -31,6 +31,7 @@ ruleTester.run("react-native/style-align-self", rule, {
     "const a = { 'alignSelf': 'flex-start' }",
     "const a = { alignSelf: `flex-start` }",
     "const a = { alignSelf: 'xq.jin' }",
+    "const a = { alignSelf: 1 }",
   ],
 
   invalid: [
