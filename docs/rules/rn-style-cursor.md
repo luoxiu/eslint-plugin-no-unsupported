@@ -1,4 +1,4 @@
-# style-cursor (style-cursor)
+# rn-style-cursor (rn-style-cursor)
 
 Please describe the origin of the rule here.
 

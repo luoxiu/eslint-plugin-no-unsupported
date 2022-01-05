@@ -1,5 +1,5 @@
 /**
- * @fileoverview style-z-index
+ * @fileoverview no unsupported calc
  * @author luoxiu
  */
 "use strict";
@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../../lib/rules/react-native/style-z-index"),
+const rule = require("../../../lib/rules/rn-style-calc"),
   RuleTester = require("eslint").RuleTester;
 
 
@@ -25,30 +25,35 @@ const parserOptions = {
 };
 
 const ruleTester = new RuleTester({ parserOptions });
-ruleTester.run("style-z-index", rule, {
+ruleTester.run("react-native/style-calc", rule, {
   valid: [
-    // give me some code that won't trigger a warning
-    "const a = { zIndex: 10 }",
-    "const a = { zIndex: -10 }",
-    "const a = { zIndex: 10.1 }",
-    "const a = { zIndex: 'xq.jin' }",
+    "const style = { width: '100%' }",
+    "style.width = `100%`",
+    "const width = '${inset}px'",
+    "<Button style={{ width: '100%' }} />",
   ],
 
   invalid: [
     {
-      code: "const a = { zIndex: '10' }",
-      errors: [{ messageId: "doesNotSupport" }],
+      code: "const style = { width: 'calc(100% - 10px)' }",
+      errors: [{ 
+        messageId: "doesNotSupport",
+      }],
     },
     {
-      code: "const a = { zIndex: '-10' }",
-      errors: [{ messageId: "doesNotSupport" }],
+      code: "style.width = 'calc(100% - 10px)'",
+      errors: [{ 
+        messageId: "doesNotSupport",
+      }],
     },
     {
-      code: "const a = { zIndex: '10.1' }",
-      errors: [{ messageId: "doesNotSupport" }],
+      code: "const width = `calc(100% - ${inset}px)`",
+      errors: [{ 
+        messageId: "doesNotSupport",
+      }],
     },
     {
-      code: "<Button style={{ zIndex: '10' }} />",
+      code: "<Button style={{ width: 'calc(100% - 10px)' }} />",
       errors: [{ 
         messageId: "doesNotSupport",
       }],

@@ -1,5 +1,5 @@
 /**
- * @fileoverview style-align-self
+ * @fileoverview style-position
  * @author luoxiu
  */
 "use strict";
@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../../lib/rules/react-native/style-align-self"),
+const rule = require("../../../lib/rules/rn-style-position"),
   RuleTester = require("eslint").RuleTester;
 
 
@@ -25,29 +25,29 @@ const parserOptions = {
 };
 
 const ruleTester = new RuleTester({ parserOptions });
-ruleTester.run("react-native/style-align-self", rule, {
+ruleTester.run("react-native/style-position", rule, {
   valid: [
-    "const a = { alignSelf: 'flex-start' }",
-    "const a = { 'alignSelf': 'flex-start' }",
-    "const a = { alignSelf: `flex-start` }",
-    "const a = { alignSelf: 'xq.jin' }",
+    "const a = { position: 'absolute' }",
+    "const a = { 'position': 'absolute' }",
+    "const a = { position: `absolute` }",
+    "const a = { position: 'xq.jin' }",
   ],
 
   invalid: [
     {
-      code: "const a = { alignSelf: 'start' }",
+      code: "const a = { position: 'fixed' }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const a = { 'alignSelf': 'start' }",
+      code: "const a = { 'position': 'fixed' }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const a = { alignSelf: `self-start` }",
+      code: "const a = { position: `sticky` }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const v = <button style={{ alignSelf: 'self-start' }} />",
+      code: "const v = <button style={{ position: 'fixed' }} />",
       errors: [{ messageId: "doesNotSupport" }],
     },
   ],

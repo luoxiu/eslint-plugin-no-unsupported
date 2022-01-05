@@ -1,5 +1,5 @@
 /**
- * @fileoverview style-cursor
+ * @fileoverview style-align-self
  * @author luoxiu
  */
 "use strict";
@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../../lib/rules/react-native/style-cursor"),
+const rule = require("../../../lib/rules/rn-style-align-self"),
   RuleTester = require("eslint").RuleTester;
 
 
@@ -25,34 +25,30 @@ const parserOptions = {
 };
 
 const ruleTester = new RuleTester({ parserOptions });
-ruleTester.run("react-native/style-cursor", rule, {
+ruleTester.run("react-native/style-align-self", rule, {
   valid: [
-    // give me some code that won't trigger a warning
-    "const a = { cursor: 'xq.jin' }",
+    "const a = { alignSelf: 'flex-start' }",
+    "const a = { 'alignSelf': 'flex-start' }",
+    "const a = { alignSelf: `flex-start` }",
+    "const a = { alignSelf: 'xq.jin' }",
   ],
 
   invalid: [
     {
-      code: "const a = { cursor: 'help' }",
+      code: "const a = { alignSelf: 'start' }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const a = { cursor: 'url(x.png), help' }",
+      code: "const a = { 'alignSelf': 'start' }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const a = { cursor: 'url(x.png) 1 1, help' }",
+      code: "const a = { alignSelf: `self-start` }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const a = { cursor: 'url(x.png) 1 1, url(x.png) 1 1, help' }",
+      code: "const v = <button style={{ alignSelf: 'self-start' }} />",
       errors: [{ messageId: "doesNotSupport" }],
-    },
-    {
-      code: "<Button style={{ cursor: 'help' }} />",
-      errors: [{ 
-        messageId: "doesNotSupport",
-      }],
     },
   ],
 });

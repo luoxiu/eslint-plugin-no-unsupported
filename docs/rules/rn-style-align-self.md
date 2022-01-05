@@ -1,4 +1,4 @@
-# style-z-index (style-z-index)
+# rn-style-align-self (rn-style-align-self)
 
 Please describe the origin of the rule here.
 

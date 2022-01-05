@@ -1,4 +1,4 @@
-# style-position (style-position)
+# rn-style-border-style (rn-style-border-style)
 
 Please describe the origin of the rule here.
 

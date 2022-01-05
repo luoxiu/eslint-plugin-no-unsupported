@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../../lib/rules/react-native/style-border-style"),
+const rule = require("../../../lib/rules/rn-style-border-style"),
   RuleTester = require("eslint").RuleTester;
 
 

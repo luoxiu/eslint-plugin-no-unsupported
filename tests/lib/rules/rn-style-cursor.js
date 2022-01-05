@@ -1,5 +1,5 @@
 /**
- * @fileoverview no unsupported calc
+ * @fileoverview style-cursor
  * @author luoxiu
  */
 "use strict";
@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../../lib/rules/react-native/style-calc"),
+const rule = require("../../../lib/rules/rn-style-cursor"),
   RuleTester = require("eslint").RuleTester;
 
 
@@ -25,35 +25,31 @@ const parserOptions = {
 };
 
 const ruleTester = new RuleTester({ parserOptions });
-ruleTester.run("react-native/style-calc", rule, {
+ruleTester.run("react-native/style-cursor", rule, {
   valid: [
-    "const style = { width: '100%' }",
-    "style.width = `100%`",
-    "const width = '${inset}px'",
-    "<Button style={{ width: '100%' }} />",
+    // give me some code that won't trigger a warning
+    "const a = { cursor: 'xq.jin' }",
   ],
 
   invalid: [
     {
-      code: "const style = { width: 'calc(100% - 10px)' }",
-      errors: [{ 
-        messageId: "doesNotSupport",
-      }],
+      code: "const a = { cursor: 'help' }",
+      errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "style.width = 'calc(100% - 10px)'",
-      errors: [{ 
-        messageId: "doesNotSupport",
-      }],
+      code: "const a = { cursor: 'url(x.png), help' }",
+      errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const width = `calc(100% - ${inset}px)`",
-      errors: [{ 
-        messageId: "doesNotSupport",
-      }],
+      code: "const a = { cursor: 'url(x.png) 1 1, help' }",
+      errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "<Button style={{ width: 'calc(100% - 10px)' }} />",
+      code: "const a = { cursor: 'url(x.png) 1 1, url(x.png) 1 1, help' }",
+      errors: [{ messageId: "doesNotSupport" }],
+    },
+    {
+      code: "<Button style={{ cursor: 'help' }} />",
       errors: [{ 
         messageId: "doesNotSupport",
       }],

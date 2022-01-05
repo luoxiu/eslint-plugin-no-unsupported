@@ -1,4 +1,4 @@
-# style-align-self (style-align-self)
+# rn-style-calc (rn-style-calc)
 
 Please describe the origin of the rule here.
 

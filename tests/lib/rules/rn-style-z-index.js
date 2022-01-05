@@ -1,5 +1,5 @@
 /**
- * @fileoverview style-position
+ * @fileoverview style-z-index
  * @author luoxiu
  */
 "use strict";
@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../../lib/rules/react-native/style-position"),
+const rule = require("../../../lib/rules/rn-style-z-index"),
   RuleTester = require("eslint").RuleTester;
 
 
@@ -25,30 +25,33 @@ const parserOptions = {
 };
 
 const ruleTester = new RuleTester({ parserOptions });
-ruleTester.run("react-native/style-position", rule, {
+ruleTester.run("style-z-index", rule, {
   valid: [
-    "const a = { position: 'absolute' }",
-    "const a = { 'position': 'absolute' }",
-    "const a = { position: `absolute` }",
-    "const a = { position: 'xq.jin' }",
+    // give me some code that won't trigger a warning
+    "const a = { zIndex: 10 }",
+    "const a = { zIndex: -10 }",
+    "const a = { zIndex: 10.1 }",
+    "const a = { zIndex: 'xq.jin' }",
   ],
 
   invalid: [
     {
-      code: "const a = { position: 'fixed' }",
+      code: "const a = { zIndex: '10' }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const a = { 'position': 'fixed' }",
+      code: "const a = { zIndex: '-10' }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const a = { position: `sticky` }",
+      code: "const a = { zIndex: '10.1' }",
       errors: [{ messageId: "doesNotSupport" }],
     },
     {
-      code: "const v = <button style={{ position: 'fixed' }} />",
-      errors: [{ messageId: "doesNotSupport" }],
+      code: "<Button style={{ zIndex: '10' }} />",
+      errors: [{ 
+        messageId: "doesNotSupport",
+      }],
     },
   ],
 });

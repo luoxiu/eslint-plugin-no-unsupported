@@ -8,7 +8,7 @@
 // Requirements
 //------------------------------------------------------------------------------
 
-const rule = require("../../../../lib/rules/react-native/style-vw-vh"),
+const rule = require("../../../lib/rules/rn-style-vw-vh"),
   RuleTester = require("eslint").RuleTester;
 
 
