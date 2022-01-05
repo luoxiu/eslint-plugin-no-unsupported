@@ -48,5 +48,11 @@ ruleTester.run("react-native/style-cursor", rule, {
       code: "const a = { cursor: 'url(x.png) 1 1, url(x.png) 1 1, help' }",
       errors: [{ messageId: "doesNotSupport" }],
     },
+    {
+      code: "<Button style={{ cursor: 'help' }} />",
+      errors: [{ 
+        messageId: "doesNotSupport",
+      }],
+    },
   ],
 });
