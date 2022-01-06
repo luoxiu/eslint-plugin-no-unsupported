@@ -14,18 +14,12 @@ Configure it in `.eslintrc.js` or `.eslintrc.json`:
 
 ```json
 {
+    "extends": [
+        "plugin:no-unsupported/react-native",
+    ],
     "plugins": [
         "no-unsupported"
     ],
-    "rules": {
-        "no-unsupported/rn-style-position": "error",
-        "no-unsupported/rn-style-calc": "error",
-        "no-unsupported/rn-style-vw-vh": "error",
-        "no-unsupported/rn-style-align-self": "error",
-        "no-unsupported/rn-style-border-style": "error",
-        "no-unsupported/rn-style-cursor": "error",
-        "no-unsupported/rn-style-z-index": "error",
-    }
 }
 ```
 
