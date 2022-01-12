@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-no-unsupported",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Do not use unsupported features.",
   "keywords": [
     "eslint",
