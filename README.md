@@ -34,3 +34,4 @@ Configure it in `.eslintrc.js` or `.eslintrc.json`:
 | `no-unsupported/rn-style-border-style` | react native only supports `borderStyle: solid\|dotted\|dashed` |
 | `no-unsupported/rn-style-cursor` | react native does not support `cursor` |
 | `no-unsupported/rn-style-z-index` | react native does not support `zIndex` with a string value |
+| `no-unsupported/rn-style-white-space` | react native does not support `whiteSpace` |
